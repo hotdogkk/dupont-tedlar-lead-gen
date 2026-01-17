@@ -1,5 +1,9 @@
 # GTM/RevOps Pipeline Orchestrator
 
+Business Context -- This system is designed for DuPont Tedlar’s Graphics & Signage GTM team
+to systematically identify and qualify high-fit prospects from industry events. By automating exhibitor scraping, ICP-based industry filtering, and company enrichment,
+the pipeline reduces manual research time and produces outreach-ready lead lists that can be routed into CRM, LinkedIn automation, or outbound sales workflows.
+
 A lightweight orchestration system for the 3-step company enrichment pipeline:
 1. **SCRAPE**: Extract exhibitor data from trade show directories
 2. **CLASSIFY**: Industry fit classification (YES/MAYBE/NO) using keyword scoring
