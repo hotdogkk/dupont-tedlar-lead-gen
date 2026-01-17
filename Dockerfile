@@ -1,10 +1,7 @@
-# Use Python slim image for smaller size
 FROM python:3.11-slim
 
-# Set working directory
 WORKDIR /app
 
-# Install system dependencies for Playwright and other tools
 RUN apt-get update && apt-get install -y \
     wget \
     gnupg \
@@ -29,28 +26,20 @@ RUN apt-get update && apt-get install -y \
     xdg-utils \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first for better caching
 COPY requirements.txt .
 
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Playwright browsers
-RUN playwright install chromium
 RUN playwright install-deps chromium
+RUN playwright install chromium
 
-# Copy application code
 COPY . .
 
-# Create outputs directory
 RUN mkdir -p outputs
 
-# Expose port (will be overridden by PORT env var at runtime)
-EXPOSE 8000
+EXPOSE 8080
 
-# Use environment variable for port (Cloud Run/Render compatible)
-ENV PORT=8000
+ENV PORT=8080
 ENV HOST=0.0.0.0
 
-# Run the FastAPI server
-CMD python -m uvicorn api:app --host ${HOST} --port ${PORT}
+CMD sh -c "uvicorn api:app --host ${HOST} --port ${PORT}"
