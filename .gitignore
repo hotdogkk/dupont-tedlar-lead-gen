@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Pipeline outputs (generated artifacts)
+outputs/*.csv
+outputs/*.json
+outputs/*.tmp
+
+# But allow committing sample/example files if needed
+# (uncomment and rename to commit specific files)
+# !outputs/sample_output.csv
+
+# API keys and secrets
+.env
+*.key
+*.secret
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts (root level)
+test_*.csv
+*_test_output.csv
+*_enriched.csv
+enriched_output.csv
+industry_filter_output*.csv
+companies_industries_filtered.csv
+
+# Keep outputs directory structure
+!outputs/.gitkeep
